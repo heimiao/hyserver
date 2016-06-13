@@ -1,0 +1,98 @@
+<!--
+	作者：maweichao90@126.com
+	时间：2016-04-26
+	描述：个人设置
+-->
+<div class="user_set">
+	<form class="form-inline">
+		<table class="table">
+			<tr>
+				<td>
+					<div class="form-group">
+						<label class="col-sm-3 col-xs-3  control-label">头像</label>
+						<div class="col-sm-9 col-xs-9">
+							<div class="uploadFile">
+								 <span ng-hide="{{user_set.showInfo.headimgurl!='undefined'}}">
+									+
+								</span> 
+								<img class="headInfo" ng-src="{{user_set.showInfo.headimgurl}}" ng-show="{{user_set.showInfo.headimgurl!='undefined'}}"/>
+								<input type="file" ngf-select ng-model="testFile"  name="headImg" accept="image/*" ngf-max-size="2MB"   ngf-model-invalid="errorFiles" ng-change="user_set.uploadPic()">
+							</div>
+						</div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<div class="form-group">
+						<label class="col-sm-3 col-xs-3  control-label">昵称</label>
+						<div class="col-sm-9 col-xs-9">
+							<input type="text" class="form-control"  ng-model="user_set.showInfo.nickname">
+						</div>
+					</div>
+				</td>
+			</tr>
+			<!--<tr>
+				<td>
+					<div class="form-group">
+						<label class="col-sm-3 col-xs-3  control-label">性别</label>
+						<div class="col-sm-9 col-xs-9">
+							 <label class="radio-inline">
+							  <input type="radio" name="inlineRadioOptions"  ng-checked="user_set.showInfo.sex==0" ng-model="user_set.showInfo.sex" value="0"> 男
+							 </label>
+							 <label class="radio-inline">
+							  <input type="radio" name="inlineRadioOptions"  ng-checked="user_set.showInfo.sex==1" ng-model="user_set.showInfo.sex" value="1">女
+							</label>
+						</div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<div class="form-group">
+						<label class="col-sm-3 col-xs-3  control-label">电话</label>
+						<div class="col-sm-9 col-xs-9">
+							<input type="text" class="form-control"  ng-model="user_set.showInfo.mobile">
+						</div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<div class="form-group">
+						<label class="col-sm-3 col-xs-3  control-label">msg</label>
+						<div class="col-sm-9 col-xs-9">
+							<input type="text" class="form-control">
+						</div>
+					</div>
+				</td>
+			</tr>-->
+			
+			 <tr>
+				<td>
+					<div class="form-group">
+						<label class="col-sm-3 col-xs-3  control-label">公司名称</label>
+						<div class="col-sm-9 col-xs-9">
+							<input type="text" class="form-control" ng-model="user_set.showInfo.company">
+						</div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<div class="form-group">
+						<label class="col-sm-3 col-xs-3  control-label">公司网址</label>
+						<div class="col-sm-9 col-xs-9">
+							<input type="text" class="form-control" ng-model="user_set.showInfo.compUrl">
+						</div>
+					</div>
+				</td>
+			</tr>
+			</table><button type="button" ng-click="user_set.updateInfo()" class="btn btn-primary sure">确认</button>
+	</form>
+</div>
+
+<div class="bottom">
+	<p>后苑聚乐部</p>
+	<p>京ICP备12024651号-2</p>
+</div>

@@ -1,0 +1,71 @@
+<!--
+	作者：maweichao90@126.com
+	时间：2016-04-26
+	描述：文章详细
+-->
+<div class="home_detail">
+	<article class="span12">
+		<h3 ng-bind="home_article.contInfo.title">
+	   </h3>
+		<p>
+			<time ng-bind="home_article.contInfo.createTime|formatTime"></time>
+		</p>
+		<p>
+			<img ng-src="{{home_article.contInfo.imgUrl}}" />
+		</p>
+		<p ng-bind-html="home_article.contInfo.content"></p>
+	</article>
+	<div class="pinglun">
+		<h4 class="pl_title">
+		     	评论区域
+		 </h4>
+		<div class="span12">
+			<div class="media" ng-repeat="item in home_article.comments">
+				<a href="#" class="pull-left">
+					<img ng-src="{{(item.sender.headimgurl)?item.sender.headimgurl:'img/defualt_header.png'}}" class="media-object" alt='' />
+				</a>
+				<div class="media-body">
+					<h4 class="media-heading" ng-bind="item.sender.name">
+						<!--<span class="right">
+							<img src="img/hand.jpg" /><span id=""> 3</span>
+						</span>-->
+					</h4>
+					<span id="" ng-bind="item.comment"></span>
+					<div class="time" ng-bind="item.createTime|formatTime"></div>
+				</div>
+			</div>
+		</div>
+		<br>
+		<div class="showMore" ng-hide="home_article.isHide">
+			<a ng-click="home_article.loadMore()">显示更多...</a>
+		</div>
+	</div>
+	<!--data-toggle="modal" data-target="#pinlunModal"-->
+	<button type="button" class="btn btn-primary btn-lg btn-block" id="injoin" ng-click="home_article.joinComments()"> 参加评论</button>
+</div>
+
+<div class="modal fade" id="pinlunModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title" id="exampleModalLabel">评论</h4>
+			</div>
+			<div class="modal-body">
+				<div class="form-group">
+					<label for="recipient-name" class="control-label">内容:</label>
+					<textarea type="text" class="form-control" id="recipient-name" style="height:100px" ng-model="home_article.saveComts.comment"></textarea>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-primary" ng-click="home_article.saveComments()">确定</button>
+				<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+				<!--<button type="button" class="btn btn-primary">Send message</button>-->
+			</div>
+		</div>
+	</div>
+</div>
+<div class="bottom">
+	<p>后苑聚乐部</p>
+	<p>京ICP备12024651号-2</p>
+</div>

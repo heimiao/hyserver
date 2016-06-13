@@ -1,0 +1,29 @@
+@charset "UTF-8"; 
+.left{
+    float:left;
+}
+.right{
+    float:right;
+}
+.clear { float: none; clear: both; font-size: 0px; line-height: 0px; height: 0px; min-height: 0px; padding: 0px; margin: 0px; overflow: hidden; }
+body{
+    font-family: "微软雅黑";
+    font-size:14px;  
+    a,img{outline:none;blr:expression(this.onFocus=this.blur());}
+    a:focus{outline:none;}
+    ul,li{margin:0px;padding:0px;}
+     background: $grey_bg;
+}   
+.mui_container{
+    max-width:1000px;
+    margin:0px auto;
+}
+.btn-grey{
+    background:$grey
+}
+@media screen and(max-width:640px){
+    
+}
+@media screen and(max-width:1000px){
+    
+}

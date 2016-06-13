@@ -1,0 +1,108 @@
+@charset "utf-8";
+.footer {
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    height: 50px;
+    text-align: center;
+    background: #fff;
+    img {
+        width: 30%;
+        max-width: 30px;
+        margin-top: 8px;
+    }
+}
+//后院版权底部
+.bottom {
+    background: #bcbcbc;
+    color: #FFF;
+    text-align: center;
+    padding: 2% 0;
+    line-height: 28px;
+    margin-bottom: 50px;
+}
+
+//详情底部
+.goodsBottom {
+    position: fixed;
+    bottom: 50px;
+    width: 100%;
+    .collect,
+    .add,
+    .shoping {
+        padding: 0;
+        a {
+            background: #262626;
+            display: inline-block;
+            width: 100%;
+            color: #fff;
+            line-height: 50px;
+            text-align: center;
+            text-decoration: none;
+            font-size: 1.4rem;
+            vertical-align: middle;
+            &:hover {
+                background: #161616;
+            }
+            img {
+                width: 20%;
+                margin: 0 10px;
+                max-width: 30px;
+                vertical-align: middle;
+            }
+        }
+    }
+    .shoping {
+        a {
+            background: #ec504f;
+            &:hover {
+                background: #e24e4d;
+            }
+        }
+    }
+}
+
+//购物车和订单
+.cartBottom{
+    position: fixed;
+    bottom: 50px;
+    width: 100%;
+    .fullAll,
+    .settlement{
+        padding:0px; 
+        line-height:50px;
+        background:#fff;
+        a{
+            color:#000;
+            text-decoration:none;
+        }
+    }
+    .fullAll{
+        padding:0px 15px;
+        img{
+            width:20px;
+            margin-right:5px;
+        }
+        a:last-child{
+            color:#737678;
+            font-size:1.2rem;
+        }
+    }
+    .settlement{
+        a{
+            display:block;
+            width:100%;
+            text-align:center;
+             background: #ff5000;
+             color:#fff;
+            &:hover {
+                background: #e24c07;
+            }
+        }
+    }
+}
+//訂單
+.accountFooter{
+    @extend .cartBottom;
+}

@@ -1,0 +1,110 @@
+<!--
+	作者：maweichao90@126.com
+	时间：2016-04-26
+	描述：订单详细
+-->
+<div class="store_account">
+	<div class="userInfo">
+		<div class="media">
+			<a ng-href="#/store_adslist?orderId={{store_account.orderId}}" class="pull-left"><img src="img/address_icon.png" class="media-object" alt='' /></a>
+			<div class="media-body">
+				<a ng-href="#/store_adslist?orderId={{store_account.orderId}}">
+					<h4 class="media-heading" ng-bind="'收货人：'+store_account.myAddress.name">
+					</h4>
+					<p ng-bind="'收货地址：'+store_account.myAddress.area+store_account.myAddress.areaInfo"></p>
+					<p class="yello">(收货不便时，可选择免费代收服务)</p>
+				</a>
+			</div>
+		</div>
+	</div>
+	<img src="img/hr.png" />
+	<div class="goodsInfo">
+		<div class="media" ng-repeat="item in store_account.Info">
+			<a class="pull-left"><img ng-src="{{item.product.iconUrl}}" class="media-object" alt='' /></a>
+			<div class="media-body">
+				<h4 class="media-heading" ng-bind="'商品名称：'+item.product.name"></h4>
+				<p ng-bind="item.product.summary" >尺寸：均码,颜色分类：卡其色</p>
+				<p class="yello">发货时间：卖家承诺24小时内发货</p>
+				<span class="integral left" ng-bind="item.price"></span>
+				<span class="left" style="margin-left:15px;" ng-bind="item.product.limit==0?'不限购':'限购'"></span>
+				<span class="right" ng-bind="'×'+item.number"></span>
+			</div>
+		</div>
+		<!--<div class="media">
+			<a class="pull-left"><img src="img/5.png" class="media-object" alt='' /></a>
+			<div class="media-body">
+				<h4 class="media-heading">
+					商品名称：
+				</h4>
+				<p>尺寸：均码,颜色分类：卡其色</p>
+				<p class="yello">发货时间：卖家承诺24小时内发货</p>
+				<span class="integral left">0 </span>
+				<span class="right">×1</span>
+			</div>
+		</div>-->
+	</div>
+	<div class="accountList">
+		<aside class="userSetList">
+			<div class="panel panel-default">
+				<!-- List group -->
+				<ul class="list-group">
+					<li class="list-group-item">
+						<a href="">
+							<span>
+					 			配送方式
+					   		</span>
+							<!--<img class="right" src="img/toRight.png" />-->
+							<span class="right">
+					 			快递免邮
+					   		</span>
+						</a>
+					</li>
+					<!--<li class="list-group-item">
+						<a href="">
+							<span>
+						 	 运费险
+						   	</span>
+							<img class="right" src="img/toRight.png" />
+							<span class="right" >
+						 	 未选择
+						   	</span>
+						</a>
+					</li> -->
+					<li class="list-group-item margin_top" >
+						<a href="">
+							<span>
+					 	 我的豆
+					   </span>
+							<img class="right" src="img/toRight.png" />
+						<span class="right" ng-bind="store_account.userInfo.coin+'分'">
+					   	</span>
+						</a>
+					</li>
+					<!--<li class="list-group-item" >
+						<a href="">
+						 <span>
+					 	 试用优惠券
+					   </span>
+							<img class="right" src="img/toRight.png" />
+						</a>
+					</li>-->
+				</ul>
+			</div>
+		</aside>
+	</div>
+	<div class="accountFooter">
+		<div class="col-xs-8 col-sm-8 fullAll">
+			<a class="right">
+				合计：
+				<span class="integral" ng-bind="store_account.sumScore"></span> 
+				&nbsp;&nbsp; 不含运费
+			</a>
+		</div>
+		<div class="col-xs-4 col-sm-4 settlement">
+			<a ng-click="store_account.submit()">
+				 确认 
+			</a>
+		</div>
+		<div class="clear"></div>
+	</div>
+</div>

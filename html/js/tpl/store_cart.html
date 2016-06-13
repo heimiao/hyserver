@@ -1,0 +1,76 @@
+<!--
+	作者：maweichao90@126.com
+	时间：2016-04-26
+	描述：购物车
+-->
+<div class="stor_cart">
+	<div class="edit_cart">
+		<img class="left ck_all" ng-click="store_cart.ckAll()" ng-src="{{store_cart.isckAll?'img/circle_ck.png':'img/circle_df.png'}}" />
+		<span class="right del" ng-show="store_cart.isEdit" ng-click="store_cart.dellAll()">删除</span>
+		<span class="right" ng-click="store_cart.isEditWay()" ng-bind="store_cart.isEdit?'取消编辑':'编辑'"></span>
+	</div>
+	<div class="cartInfo_list">
+		 <section ng-repeat="item in store_cart.Info" >
+			<div class="row {{(item.ck)?'active':''}}" ng-click="(!store_cart.isEdit)?store_cart.radioCk(item):''">
+				<div class="col-sm-1 col-xs-1 ck_box" >
+					<img ng-src="{{(item.ck)?'img/circle_ck.png':'img/circle_df.png'}}" ng-click="store_cart.radioCk(item)"/>
+				</div>
+				<div class="col-sm-11 col-xs-11 goodscont">
+					<div class="media">
+						<a class="pull-left">
+							<img  class="media-object" alt='' ng-src="{{item.product.iconUrl}}"/>
+						</a>
+						<div class="media-body">
+							<div class="goodsInfo" ng-hide="store_cart.isEdit">
+								<h4 class="media-heading" ng-bind="item.product.name">
+								  嵌入媒体标题
+								</h4>
+								<p>
+									{{item.product.summary|interception}}
+									<a>
+										<span class="integral" ng-bind="item.product.price*item.number"> 0 </span> 
+										<span></span> 
+									</a>
+									<span class="right" ng-bind="item.number+'件'"></span>
+								</p>
+							</div> 
+							<div class="goodsEdit" ng-show="store_cart.isEdit">
+								 <div class="col-xs-8 col-sm-8 minus_add">
+								 	<h4 class="media-heading" ng-bind="item.product.name">
+										 嵌入媒体标题
+									</h4>
+									<div class="calculate">
+										  <a  ng-click="store_cart.eidtGoodsNum(item,1)">+</a>
+									 	 	<input type="text" ng-model="item.number"/>
+									      <a  ng-click="store_cart.eidtGoodsNum(item,0)">-</a>
+									</div>
+								 </div>
+								 <div class="col-xs-4 col-sm-4 del_btn">
+								 	 <a ng-click="store_cart.dellGoods(item)">删&nbsp;除</a>
+								 </div>
+							</div>
+							
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
+	<div class="cartBottom">
+		<div class="col-xs-8 col-sm-8 fullAll">
+			<a onclick="" class="left">
+				<img ng-src="{{store_cart.isckAll?'img/circle_ck.png':'img/circle_df.png'}}" class="ck_all" ng-click="store_cart.ckAll()"/>全选
+			</a>
+			<a class="right">
+				<span class="integral" ng-bind="store_cart.integral"></span> 
+				 不含运费
+			</a>
+		</div>
+		<div class="col-xs-4 col-sm-4 settlement">
+			<a  ng-click="store_cart.goAccount()">
+				 结算<span ng-bind="'('+store_cart.ckGoods.length+')'"></span>
+			</a>
+		</div>
+		<div class="clear"></div>
+	</div> 
+</div>

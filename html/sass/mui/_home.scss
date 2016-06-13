@@ -1,0 +1,110 @@
+@charset "utf-8";
+//微商首页
+.hm_container{
+    background:$grey_bg;
+    padding:0px 10px 10px 10px;
+    .content{
+        ul{
+            li{
+                list-style-type:none;
+                @include radius(5px);
+                overflow: hidden;
+                margin:20px auto;
+                @include box-shadow("0 0 5px 3px rgba(0, 0, 0, .6)");
+                .thumbnail{
+                    padding:0px;
+                    margin:0px;
+                    img{
+                        width:100%;
+                        max-width:1000px;
+                    }
+                    .caption{
+                        padding:10px;
+                        a{
+                            text-decoration: none;
+                        }
+                        h3{ 
+                            margin:0px;
+                            color:#000000;
+                            font-size:1.5rem;
+                            font-weight:bold;
+                        }
+                        p{
+                            margin-top:5px;
+                            width:100%;
+                            font-size:1.2rem;
+                            display: inline-block;
+                            overflow: hidden;
+                            white-space: nowrap;
+                            text-overflow: ellipsis;
+                        }
+                        .icon{
+                            text-align: center;
+                            >a{
+                                display:inline-block;
+                                width:30px; 
+                                height:30px;
+                                margin-top:10px;
+                                &:first-child{
+                                    margin-right:5px;
+                                }
+                                img{
+                                    width:100%;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        button{
+            margin-bottom:15px;
+        }
+    }
+}
+//微商详情页
+.home_detail{
+    article{
+        padding:0px 10px;
+//      img{
+//          width:100%;
+//      }
+    }
+    .pinglun{
+        padding:0px 10px;
+        background:#f3f3f3;
+        .pl_title{
+            padding:15px 0px;
+            font-size:1.8rem;
+            color:#8D8D8D;
+            border-bottom:1px solid #E3E3E3;
+        }
+        .media{
+            padding:5px 0px;
+            .media-heading{
+                font-size:1.5rem;
+                color:#707070;
+                img{width:20px;height:20px;cursor: pointer;}
+            }
+            span{
+                font-size:1.2rem;
+            }
+            img{
+                width:50px;
+                height:50px;
+            }
+            .time{
+                color:#8D8D8D;
+                font-size:1rem;
+            }
+        }
+        .showMore{
+           padding:15px;
+           text-align: center;
+        }
+    }
+    
+    button{
+         margin:15px auto;
+    }
+}

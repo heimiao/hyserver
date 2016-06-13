@@ -1,0 +1,12 @@
+@charset "UTF-8";
+.integral:before {
+    display: inline-block;
+    content: "积";
+    text-align: center;
+    line-height: 20px;
+    font-size: 10px;
+    width: 20px;
+    color: #fff;
+    @include radius(50%);
+    background: #ff5000;
+}

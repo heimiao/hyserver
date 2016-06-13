@@ -1,0 +1,44 @@
+<!--
+	作者：maweichao90@126.com
+	时间：2016-04-26
+	描述：收货地址列表
+-->
+<!--<div class="addressTop">
+	<span class="callback">
+			<a  ng-click="store_adslist.sure()" style="color:#fff">&lt;&nbsp;返回</a>
+	 </span>
+	<span class="title">
+			收货地址列表
+	 </span>
+</div>-->
+<div class="store_adslist">
+	<form class="form-inline">
+		<table class="table">
+			<tr ng-click=""   ng-repeat="item in store_adslist.list" >
+				<td ng-click="store_adslist.ckedAddress(item)">
+					<dl ng-class="item.defaults?'actived':''">
+						<dt ng-bind="item.name" >
+					 		黑猫
+						</dt>
+						<dd ng-bind="item.area">
+							北京市海淀区
+						</dd>
+					</dl>
+					<a class="delBtn right"  ng-click="store_adslist.delAddress(item)">删除</a>
+					<!--<a class="editBtn" href="#/store_editsite?addressId={{item.addressId}}">编辑</a>-->
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<a href="#/store_editsite?orderId={{store_adslist.orderId}}"><span class="addAddress">+</span>新增地址 </a>
+				</td>
+			</tr>
+		</table>
+		<button type="button" class="btn sure" ng-click="store_adslist.sure()">确认</button>
+	</form>
+</div>
+
+<div class="bottom">
+	<p>后苑聚乐部</p>
+	<p>京ICP备12024651号-2</p>
+</div>

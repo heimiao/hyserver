@@ -1,0 +1,24 @@
+@charset "utf-8";
+//收货地址头部
+.addressTop {
+    height: 30px;
+    background: #000;
+    color: #fff;
+    position:fixed;
+    width:100%;
+    .callback {
+        margin-left:15px;
+        display: inline-block;
+        width:50px;
+        height: 100%;
+        line-height: 30px;
+        color:#fff;
+    }
+    .title {
+        position: absolute;
+        width: 100%;
+         left:0px;
+        line-height: 30px;
+        text-align: center;
+    }
+}

@@ -1,0 +1,101 @@
+<!--
+	作者：maweichao90@126.com
+	时间：2016-04-26
+	描述：购物车
+-->
+<div class="stor_accoutlist">
+	<div class="cartInfo_list">
+		<!--
+        	作者：maweichao@126.com
+        	时间：2016-05-01
+        	描述： 
+        -->
+		<section>
+			<div class="row">
+				<div class="col-sm-3 col-xs-3 {{(store_accountlist.submitFrm.state=='all')?'cked':''}}" ng-click="store_accountlist.screening('all')">
+					全部
+				</div>
+				<div class="col-sm-3 col-xs-3 {{(store_accountlist.submitFrm.state=='Enter')?'cked':''}}" ng-click="store_accountlist.screening('Enter')">
+					已确认
+				</div>
+				<div class="col-sm-3 col-xs-3 {{(store_accountlist.submitFrm.state=='Create')?'cked':''}}" ng-click="store_accountlist.screening('Create')">
+					未确认
+				</div>
+				<div class="col-sm-3 col-xs-3 {{(store_accountlist.submitFrm.state=='Cancle')?'cked':''}}" ng-click="store_accountlist.screening('Cancle')">
+					取消
+				</div>
+				<div class="col-sm-12 col-xs-12 goodscont" ng-repeat="item in store_accountlist.Info" ng-show="store_accountlist.Info.length>0">
+					<div class="media" ng-repeat="item2 in item.items">
+						<a class="pull-left">
+							<img class="media-object" alt='' ng-src="{{item2.product.iconUrl}}" />
+						</a>
+						<div class="media-body">
+							<div class="goodsInfo">
+								<h4 class="media-heading" ng-bind="item2.product.name">
+								  嵌入媒体标题
+								</h4>
+								<p>
+									{{item2.product.summary}}
+									<a>
+										<span class="left integral" ng-bind="item2.product.price"> 0 </span>
+										<span class="left" ng-bind="item2.product.limit==0?'不限购':'限购'"></span>
+										<span>&nbsp;</span>
+									</a>
+									<span class="right" ng-bind="item2.number+'件'"></span>
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-12 col-xs-12">
+						<div ng-bind="'收货地址：'+item.address.area+item.address.areaInfo">
+							收货地址：
+						</div>
+						<div ng-bind="'收件人：'+item.address.name">
+							收件人：
+						</div>
+						<div ng-bind="'联系电话：'+item.address.telephon">
+							收件人：
+						</div>
+					</div>
+					<div class="col-sm-3 col-xs-3">
+						<span ng-bind="item.state=='Enter'?'已确认':''"></span>
+						<span ng-bind="item.state=='Create'?'未确认':''"></span>
+						<span ng-bind="item.state=='Cancle'?'取消':''"></span>
+					</div>
+					<div class="col-sm-9 col-xs-9 btngroup">
+						<a ng-click="store_accountlist.cancelOrder(item.orderId)" class="grey" ng-hide="item.state=='Cancle'||item.state=='Enter'">取消订单</a>&nbsp;&nbsp;&nbsp;
+						<a href="#/store_account?accountId={{item.orderId}}" class="sure" ng-hide="item.state=='Enter'||item.state=='Cancle'">支付订单</a>
+					</div>
+					<hr />
+				</div>
+				<div style="text-align:center;margin:50px auto;color:#333" ng-hide="store_accountlist.Info.length>0">
+					暂无订单
+				</div>
+			</div>
+		</section>
+	</div>
+	<button type="button" class="btn btn-default btn-lg btn-block" ng-click="store_accountlist.loadMore()" ng-hide="store_accountlist"><img src="img/loading.gif"  >加载更多...</button>
+</div>
+
+<div class="modal fade" id="cancelOrder" tabindex="-1" role="dialog" aria-labelledby="cancelOrder">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title" id="cancelOrder">取消订单</h4>
+			</div>
+			<div class="modal-body">
+				<input type="hidden" name="recodeId" id="recodeId" value="" />
+				<div class="form-group">
+					<label for="recipient-name" class="control-label">取消原因:</label>
+					<textarea type="text" class="form-control" style="height:100px" ng-model="store_accountlist.submitFrm.description"></textarea>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-primary" ng-click="store_accountlist.sureCancelOrder()">确定</button>
+				<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+				<!--<button type="button" class="btn btn-primary">Send message</button>-->
+			</div>
+		</div>
+	</div>
+</div>

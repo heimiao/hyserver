@@ -1,0 +1,68 @@
+<!--
+	作者：maweichao90@126.com
+	时间：2016-04-26
+	描述：商品详细
+-->
+<div class="goodsDetail">
+	<!--<div class="banner">
+		<div class="swiper-container" banner-shuffling>
+			<div class="swiper-wrapper"></div>
+			<div class="swiper-pagination"></div>
+		</div> 
+	</div>-->
+	<div class="goodsAticle">
+		<div class="goodsAttr">
+			<img src="img/shuxing.jpg" class="titleAttr"/>
+			 <dl>
+			 	<dt>
+			 		<div class="col-xs-6 col-sm-6">
+			 			 <img  ng-src="{{goods_detail.Info.iconUrl}}"/>
+			 		</div>
+			 		<div class="col-xs-6 col-sm-6" align="left">
+		 				<b>名称：</b>{{goods_detail.Info.name}}
+		 				<br> 
+		 				<b>价格：</b>{{goods_detail.Info.price}}
+		 				<br>
+			 		</div>
+			 		<div class="clear"> </div>
+			 	</dt>
+			 	<dd>
+			 		<b> 产品描述： </b>
+			 		<span ng-bind="goods_detail.Info.summary" > </span>
+			 	</dd>
+			 </dl>
+			<img src="img/zhanshi.jpg" class="titleShow"/>
+		</div>
+		<!--
+        	作者：maweichao90 
+        	时间：2016-04-19
+        	描述：ng-src="goods_detail.Info.descImgUrl"
+        -->
+        <div class="description" ng-bind-html="goods_detail.Info.description"> 
+        </div>
+		<!--<img src="img/1.jpg" ng-src="goods_detail.Info.descImgUrl"/>-->
+	</div>
+	<div class="goodsBottom">
+		<div class="col-xs-3 col-sm-3 collect">
+			<!--<a onclick="alert('暂未开放')">
+				<img src="img/start.png" />收藏
+			</a>-->
+			<a >&nbsp;</a>
+		</div>
+		<div class="col-xs-5 col-sm-5 add">
+			<a  ng-click="goods_detail.injoinCart(goods_detail.Info.productId)">
+				<img src="img/car.png" />加入购物车
+			</a>
+		</div>
+		<div class="col-xs-4 col-sm-4 shoping">
+			<a href="#/store_account?productId={{goods_detail.Info.productId}}">
+				 立即购买
+			</a>
+		</div>
+		<div class="clear"></div>
+	</div>
+</div>
+<!--<div class="bottom">
+	<p>后苑聚乐部</p>
+	<p>京ICP备12024651号-2</p>
+</div>-->

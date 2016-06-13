@@ -1,0 +1,43 @@
+<!--
+	作者：maweichao90@126.com
+	时间：2016-04-26
+	描述：文章列表
+-->
+<div class="banner" ng-hide="home.iscolle">
+	<div class="swiper-container" scroll-banner>
+		<div class="swiper-wrapper " data-url="test"></div>
+		<div class="swiper-pagination"></div>
+	</div> 
+</div>
+
+<div class="hm_container">
+	<div class="content">
+		<ul class="thumbnails">
+			<li ng-repeat="item in home.list">
+				<div class="thumbnail">
+					<a ng-href="#/home_detail?articleId={{item.articleId}}&isAnchor=false" class="showImg">
+						<img src="{{item.imgUrl}}" /> </a>
+					<div class="caption row">
+						<div class="col-xs-8 col-sm-9 col-md-9 ">
+							<a ng-href="#/home_detail?articleId={{item.articleId}}&isAnchor=false">
+								<h3 ng-bind="item.title"></h3></a>
+							<p ng-bind="item.summary"></p>
+						</div>
+						<div class="col-xs-4 col-sm-3 col-md-3 icon">
+							<!--<img src="img/comment_icon.png"/>
+							<img src="img/heart_icon.png" />-->
+							<a ng-href="#/home_detail?articleId={{item.articleId}}&isAnchor=true"><img ng-src="img/comment_icon.png" /></a>
+							<a ng-click="home.iscollection(item)" ng-hide="home.iscollect"><img src="{{(item.favorite)?'img/icon-like.png':'img/heart_icon.png'}}" /></a>
+						</div>
+						<div class="clear"></div>
+					</div>
+				</div>
+			</li>
+		</ul>
+		<button type="button" class="btn btn-default btn-lg btn-block J_load" ng-click="home.loadMore()" ng-hide="home.isHide"><img src="img/loading.gif" style="display: none;">加载更多...</button>
+	</div>
+</div>
+<div class="bottom">
+	<p>后苑聚乐部</p>
+	<p>京ICP备12024651号-2</p>
+</div>

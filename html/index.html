@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN" ng-app="myApp">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1,user-scalable =no">
+		<!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+		<title>蜘蛛商城</title>
+		<!-- Bootstrap -->
+		<link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+		<link href="css/style.css" rel="stylesheet">
+		<link href="css/swiper.min.css" rel="stylesheet">
+		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+      <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+	</head>
+	<body>
+		<div class="mui_container">
+			<div class="content" ui-view> </div>
+			<footer class="footer">
+				<div class="row">
+					<div class="col-xs-4 col-sm-4 col-md-4">
+						<a ui-sref="home"><img src="img/home.png" /></a>
+					</div>
+					<div class="col-xs-4 col-sm-4 col-md-4">
+						<a ui-sref="store"><img src="img/mall.png" /></a>
+					</div>
+					<div class="col-xs-4 col-sm-4 col-md-4">
+						<a ui-sref="user"><img src="img/user.png" /></a>
+					</div>
+				</div>
+			</footer>
+		</div>
+		<!--第三方类库-->
+		<script src="lib/jquery-1.11.3.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="lib/dailog.js" type="text/javascript"></script>
+		<script src="lib/city.js" type="text/javascript"></script>
+		<script src="lib/swiper.min.js" type="text/javascript"></script>
+		<script src="lib/jquery.cookie.js" type="text/javascript"></script>
+		<script src="bootstrap/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="lib/angular/angular.min.js" type="text/javascript"></script>
+		<script src="lib/angular/angular-ui-router.js" type="text/javascript"></script>
+		<script src="lib/angular/ng-file-upload-all.min.js" type="text/javascript" charset="utf-8"></script>
+		<!--个人类库-->
+		<script src="js/base.js" type="text/javascript"></script>
+		<script src="js/router.js" type="text/javascript"></script>
+		<script src="js/server.js" type="text/javascript"></script>
+		<!--
+        	作者：maweichao
+        	时间：2016-04-11
+        	描述：主页
+        -->
+		<script src="js/instruction/home.js" type="text/javascript"></script>
+		<script src="js/controller/home.js" type="text/javascript"></script>
+
+		<script src="js/instruction/user.js" type="text/javascript"></script>
+		<script src="js/controller/user.js" type="text/javascript"></script>
+		
+		<script src="js/instruction/store.js" type="text/javascript"></script>
+		<script src="js/controller/store.js" type="text/javascript"></script>
+	</body>
+
+</html>

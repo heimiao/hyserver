@@ -1,0 +1,148 @@
+<!--
+	作者：maweichao90@126.com
+	时间：2016-04-26
+	描述：个人中心
+-->
+<div class="user_container">
+	<header class="userHead">
+		<div class="loginInfo" ng-show="user.isLogin">
+			<a href="#/user_set" >
+				<img class="headImg" ng-src="{{user.showInfo.headimgurl?user.showInfo.headimgurl:'img/defualt_header.png'}}" />
+			</a>
+			<dl>
+				<dt>
+					<div class="cont">
+						<span class="title" ng-bind="user.showInfo.nickname"> </span>
+						<br><br>
+						<span class="company" ng-bind="user.showInfo.company"> </span>
+						<br>
+					 	<span class="netAddress" ng-bind="user.showInfo.compUrl"></span>
+					</div>
+				</dt>
+				<dd>
+					<img src="img/rest.png" />剩余豆：<span class="balance" ng-bind="user.showInfo.coin">0</span>&nbsp;&nbsp;|&nbsp;&nbsp;
+					<img src="img/cost.png" />已消费：<span class="balance" ng-bind="user.showInfo.useCoin">0</span>
+				</dd>
+			</dl>
+		</div>
+		<div class="unlogin" ng-hide="user.isLogin">
+			<div class="title">
+				您还没有登录哦~
+			</div>
+			<div class="btngroup">
+				<button class="btn  btn-first" type="button" data-toggle="modal" data-target="#loginModal">登录</button>
+				<button class="btn btn-last" type="button" data-toggle="modal" data-target="#registerModal">注册</button>
+			</div>
+		</div>
+	</header>
+	<aside class="userSetList">
+		<div class="panel panel-default">
+			<!-- List group -->
+			<ul class="list-group">
+				<li class="list-group-item" ng-show="user.isLogin">
+					<a href="#/store_accountlist">
+						<img class="left" src="img/orderIcon.png" />
+						<span>
+					 		 我的订单 
+					   </span>
+						<img class="right" src="img/toRight.png" />
+					</a>
+				</li>
+				<li class="list-group-item" ng-show="user.isLogin">
+					<a href="#/collection?collection='true'">
+						<img class="left" src="img/favtIcon.png" />
+						<span>
+					 	 我的收藏 
+					   </span>
+						<img class="right" src="img/toRight.png" />
+					</a>
+				</li>
+				<li class="list-group-item margin_top" ng-show="user.isLogin">
+					<a href="#/user_set">
+						<img class="left" src="img/talkIcon.png" />
+						<span>
+					 	 我的设置 
+					   </span>
+						<img class="right" src="img/toRight.png" />
+					</a>
+				</li>
+			</ul>
+		</div>
+		<button type="button" class="btn btn-primary btn-lg btn-red" ng-click="user.exit()"  ng-show="user.isLogin">退出</button>
+	</aside>
+</div>
+
+<div class="bottom" style="margin-bottom:30px">
+	<p>后苑聚乐部</p>
+	<p>京ICP备12024651号-2</p>
+</div>
+
+<button type="button" style="opacity:0;" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"></button>
+<div class="modal fade mui-modal" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title mui-title">登录会员中心</h4>
+			</div>
+			<div class="modal-body dailogFrm">
+				<form>
+					<div class="form-group">
+						<div class="input-group">
+							<div class="input-group-addon">帐号</div>
+							<input type="text" class="form-control" placeholder="帐号" ng-model="user.userInfo.username">
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="input-group">
+							<div class="input-group-addon">密码</div>
+							<input type="password" id='pwd' class="form-control" placeholder="密码" ng-model="user.userInfo.password">
+							<div class="input-group-addon" onclick="$('#pwd').val('')" style="border-right:1px solid #ccc;border-left:0px;">×</div>
+						</div>
+					</div>
+					<button type="button" ng-click="user.login()" class="btn btn-primary sure">确认</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="modal fade mui-modal" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title mui-title">注册后苑会员</h4>
+			</div>
+			<div class="modal-body dailogFrm">
+				<form>
+					<div class="form-group">
+						<div class="input-group">
+							<div class="input-group-addon">帐号</div>
+							<input type="text" class="form-control" placeholder="请输入手机号" ng-model="user.userInfo.username">
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<div class="input-group">
+							<div class="input-group-addon">密码</div>
+							<input type="password" class="form-control" placeholder="密码" ng-model="user.userInfo.password">
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="input-group">
+							<div class="input-group-addon">确认密码</div>
+							<input type="password" class="form-control" placeholder="确认密码"  ng-model="user.userInfo.repassword">
+						</div>
+					</div>
+					<button type="button" ng-click="user.register()"  class="btn btn-primary sure">确认</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+<!--
+	作者：maweichao90@126.com
+	时间：2016-04-17
+	描述：登陆模态框
+-->
+ 
